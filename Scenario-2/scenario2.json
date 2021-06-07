@@ -30,6 +30,17 @@
             "type": "file",
             "source": "./helloworld.txt",
             "destination": "/home/ubuntu/"
+        },
+        {
+            "type":"shell",
+            "inline": [
+                "ls -al /home/ubuntu",
+                "cat /home/ubuntu/helloworld.txt"
+            ]
+        },
+        {
+            "type": "shell",
+            "script": "./installNginx.sh"
         }
     ]
 }
