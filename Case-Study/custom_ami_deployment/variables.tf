@@ -4,14 +4,9 @@ variable "public_key_path" {
   default = "~/.ssh/mrp_key.pub"
 }
 
-variable "VPC_ID" {
-    type = string
-    default = ""
-}
-
 variable "ENVIRONMENT" {
     type    = string
-    default = ""
+    default = "development"
 }
 
 variable "AMI_ID" {
@@ -23,11 +18,6 @@ variable "AWS_REGION" {
 default = "eu-central-1"
 }
 
-
 variable "INSTANCE_TYPE" {
   default = "t2.micro"
-}
-
-variable "PUBLIC_SUBNETS" {
-  type = list
 }

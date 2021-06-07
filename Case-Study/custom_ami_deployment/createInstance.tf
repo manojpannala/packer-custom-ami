@@ -1,22 +1,25 @@
 # Create Instance uisng Custom VPC
-module "dev-vpc" {
-    source = "../modules/vpc"
+
+module "develop-vpc" {
+    source      = "../modules/vpc"
+
     ENVIRONMENT = var.ENVIRONMENT
-    AWS_REGION = var.AWS_REGION
+    AWS_REGION  = var.AWS_REGION
 }
+
 provider "aws" {
-    region = var.AWS_REGION
-  
+  region = var.AWS_REGION
 }
+
 #Resource key pair
 resource "aws_key_pair" "mrp_key" {
   key_name      = "mrp_key"
   public_key    = file(var.public_key_path)
 }
 
-#Security Group for Instances
+#Secutiry Group for Instances
 resource "aws_security_group" "allow-ssh" {
-  vpc_id      = module.dev-vpc.my_vpc_id
+  vpc_id      = module.develop-vpc.my_vpc_id
   name        = "allow-ssh-${var.ENVIRONMENT}"
   description = "security group that allows ssh traffic"
 
@@ -46,7 +49,7 @@ resource "aws_instance" "my-instance" {
   instance_type = var.INSTANCE_TYPE
 
   # the VPC subnet
-  subnet_id = element(module.dev-vpc.public_subnets, 0)
+  subnet_id = element(module.develop-vpc.public_subnets, 0)
   availability_zone = "${var.AWS_REGION}a"
 
   # the security group
