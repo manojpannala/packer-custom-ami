@@ -1,4 +1,4 @@
-# Hashicorp Packer
+# Packer Custom AMI
 
 
 ![Hashicorp%20Packer%20f8c9bd0610014227a40b1b79f2bbbdf3/packer-vertical-monochrome.svg](https://res.cloudinary.com/readycle-com/image/upload/v1624167037/Readycle/Jenkins-ECommerce/packer-vertical-monochrome_icjmbx.png)
